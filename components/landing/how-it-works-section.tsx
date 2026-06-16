@@ -13,7 +13,7 @@ const steps = [
   VR ......... 580  [ gap: -90 ]
   DM ......... 620  [ gap: -50 ]
   QR ......... 640  [ gap: -30 ]
-  AR ......... 600  [ gap: -70 ]
+  SJT ........ 600  [ gap: -70 ]
 
   target = 2600+`,
   },
@@ -21,14 +21,13 @@ const steps = [
     number: "II",
     title: "Install the system",
     description:
-      "Work through the five modules in sequence. Each one installs a repeatable framework you apply on autopilot.",
+      "Work through the four modules in sequence. Each one installs a repeatable framework you apply on autopilot.",
     code: `> dale install --module all
 
   [01] verbal_reasoning ..... OK
   [02] decision_making ...... OK
   [03] quantitative ......... OK
-  [04] abstract ............. OK
-  [05] situational .......... OK`,
+  [04] situational .......... OK`,
   },
   {
     number: "III",

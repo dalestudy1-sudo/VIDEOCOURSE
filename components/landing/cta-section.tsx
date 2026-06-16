@@ -72,7 +72,7 @@ export function CtaSection() {
             </Button>
 
             <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mt-8">
-              [ One payment — lifetime access to the system ]
+              [ One payment. Lifetime access to the system ]
             </p>
           </div>
 

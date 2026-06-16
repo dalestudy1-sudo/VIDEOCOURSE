@@ -11,7 +11,11 @@ const footerLinks = {
   Resources: [
     { name: "UCAT Overview", href: "#" },
     { name: "Score Bands", href: "#" },
-    { name: "FAQ", href: "#" },
+    { name: "FAQ", href: "#faq" },
+    {
+      name: "DALETRACKER: UCAT Mock Tracker",
+      href: "https://dale-tracker-d.vercel.app/",
+    },
   ],
   Legal: [
     { name: "Privacy", href: "#" },
@@ -19,11 +23,7 @@ const footerLinks = {
   ],
 };
 
-const socialLinks = [
-  { name: "Instagram", href: "#" },
-  { name: "TikTok", href: "#" },
-  { name: "YouTube", href: "#" },
-];
+const socialLinks = [{ name: "YouTube", href: "#" }];
 
 export function FooterSection() {
   return (
@@ -37,13 +37,13 @@ export function FooterSection() {
               <a href="#" className="inline-flex items-center gap-2 mb-6">
                 <span className="w-3 h-3 bg-primary" />
                 <span className="text-xl font-display font-bold uppercase tracking-tight">
-                  DALE_STUDY&trade;
+                  DALEPREP&trade;
                 </span>
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
                 The engineered blueprint to master the UCAT and score 2600+. A
-                structured, repeatable system — not luck.
+                structured, repeatable system. Not luck.
               </p>
 
               {/* Social Links */}
@@ -72,6 +72,8 @@ export function FooterSection() {
                     <li key={link.name}>
                       <a
                         href={link.href}
+                        target={link.href.startsWith("http") ? "_blank" : undefined}
+                        rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                         className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       >
                         {link.name}
@@ -87,7 +89,7 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground">
-            2026 DALE_STUDY&trade;. All rights reserved.
+            2026 DALEPREP&trade;. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">

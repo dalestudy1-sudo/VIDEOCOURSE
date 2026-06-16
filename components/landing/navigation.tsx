@@ -54,7 +54,7 @@ export function Navigation() {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 lg:gap-10">
+          <div className="hidden md:flex flex-1 items-center justify-center gap-10 lg:gap-12">
             {navLinks.map((link) => (
               <a
                 key={link.name}

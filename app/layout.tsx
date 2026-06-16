@@ -10,7 +10,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'THE SYSTEM TO MASTER THE UCAT — 2600+ Blueprint',
+  title: 'THE SYSTEM TO MASTER THE UCAT: 2600+ Blueprint',
   description: 'The engineered system to master the UCAT. A structured, repeatable blueprint to score 2600+. Secure your spot in the masterclass.',
   generator: 'v0.app',
 }

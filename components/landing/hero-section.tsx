@@ -36,7 +36,7 @@ export function HeroSection() {
           </span>
         </div>
 
-        {/* Main headline — two-line hierarchy */}
+          {/* Main headline: two-line hierarchy */}
         <div className="mb-10">
           <h1
             className={`text-[clamp(2.75rem,10vw,9rem)] font-display font-bold uppercase leading-[0.9] tracking-tight text-balance transition-all duration-1000 ${
@@ -87,7 +87,7 @@ export function HeroSection() {
               </a>
             </Button>
             <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-              [ Lifetime access — one engineered system ]
+              [ Lifetime access. One engineered system ]
             </span>
           </div>
         </div>

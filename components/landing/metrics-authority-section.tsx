@@ -67,39 +67,30 @@ export function MetricsAuthoritySection() {
           ))}
         </div>
 
-        {/* Authority / trust logos — continuous marquee */}
+        {/* Authority / trust logos: uniform badge grid */}
         <div
           className={`mt-12 lg:mt-16 transition-opacity duration-700 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
           <span className="block font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-8 text-center">
-            [ Trusted by applicants who secured offers at ]
+            [ Secured offers at ]
           </span>
-          <div
-            className="group relative overflow-hidden"
-            style={{
-              maskImage:
-                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-              WebkitMaskImage:
-                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-            }}
-          >
-            <div className="flex w-max marquee group-hover:[animation-play-state:paused]">
-              {[...schools, ...schools].map((school, index) => (
-                <div
-                  key={`${school.name}-${index}`}
-                  className="flex shrink-0 items-center justify-center px-10 lg:px-16"
-                >
-                  <img
-                    src={school.src || "/placeholder.svg"}
-                    alt={`${school.name} logo`}
-                    className="h-12 lg:h-16 w-auto object-contain"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 lg:gap-8">
+            {schools.map((school) => (
+              <div
+                key={school.name}
+                className="flex h-24 lg:h-28 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/[0.03] px-6 backdrop-blur-sm transition-colors duration-300 hover:border-foreground/20 hover:bg-foreground/[0.06]"
+              >
+                <img
+                  src={school.src || "/placeholder.svg"}
+                  alt={`${school.name} logo`}
+                  className="max-h-12 lg:max-h-14 w-auto max-w-full object-contain"
+                  style={{ filter: "brightness(0.95) contrast(0.9)" }}
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

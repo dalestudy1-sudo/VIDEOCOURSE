@@ -65,7 +65,7 @@ export function VideoSection() {
                 <Play className="w-7 h-7 fill-current text-foreground transition-colors group-hover:text-primary-foreground" />
               </button>
               <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                [ 04:32 — SYSTEM_OVERVIEW.mp4 ]
+                [ 04:32 / SYSTEM_OVERVIEW.mp4 ]
               </span>
             </div>
 
