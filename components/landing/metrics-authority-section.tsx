@@ -5,21 +5,18 @@ import { useEffect, useRef, useState } from "react";
 const metrics = [
   { value: "2600+", label: "Avg Score" },
   { value: "95%", label: "Offer Success" },
-  { value: "3x", label: "Speed Increase" },
   { value: "Top 1%", label: "Frameworks" },
 ];
 
-// imgClass tunes each logo's height inside a fixed w-40 h-24 box so bold/blocky
-// marks (UCL) read at the same visual weight as wide, thin wordmarks (Edinburgh).
 const schools = [
-  { name: "University of Oxford", src: "/logos/oxford.png", imgClass: "h-14" },
-  { name: "University of Cambridge", src: "/logos/cambridge.png", imgClass: "h-16" },
-  { name: "University College London", src: "/logos/ucl.png", imgClass: "h-10" },
-  { name: "University of Edinburgh", src: "/logos/edinburgh.png", imgClass: "h-20" },
-  { name: "University of Bristol", src: "/logos/bristol.png", imgClass: "h-16" },
-  { name: "University of Nottingham", src: "/logos/nottingham.png", imgClass: "h-14" },
-  { name: "University of St Andrews", src: "/logos/standrews.png", imgClass: "h-16" },
-  { name: "Cardiff University", src: "/logos/cardiff.png", imgClass: "h-12" },
+  { name: "University of Oxford", src: "/logos/oxford.png" },
+  { name: "University of Cambridge", src: "/logos/cambridge.png" },
+  { name: "University College London", src: "/logos/ucl.png" },
+  { name: "University of Edinburgh", src: "/logos/edinburgh.png" },
+  { name: "University of Bristol", src: "/logos/bristol.png" },
+  { name: "University of Nottingham", src: "/logos/nottingham.png" },
+  { name: "University of St Andrews", src: "/logos/standrews.png" },
+  { name: "Cardiff University", src: "/logos/cardiff.png" },
 ];
 
 export function MetricsAuthoritySection() {
@@ -52,7 +49,7 @@ export function MetricsAuthoritySection() {
         </div>
 
         {/* Metrics row */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 border-l border-t border-foreground/10">
+        <div className="grid grid-cols-3 border-l border-t border-foreground/10">
           {metrics.map((metric, index) => (
             <div
               key={metric.label}
@@ -70,11 +67,6 @@ export function MetricsAuthoritySection() {
             </div>
           ))}
         </div>
-
-        {/* Data notes footer */}
-        <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-foreground/40">
-          [ Note ] Speed increase reflects avg time-per-question dropping from 90s to 30s.
-        </p>
 
         {/* Authority / trust logos: continuous marquee */}
         <div
@@ -98,12 +90,12 @@ export function MetricsAuthoritySection() {
               {[...schools, ...schools].map((school, index) => (
                 <div
                   key={`${school.name}-${index}`}
-                  className="flex w-40 max-h-24 shrink-0 items-center justify-center px-2"
+                  className="flex h-32 shrink-0 items-center justify-center px-8 lg:px-10"
                 >
                   <img
                     src={school.src || "/placeholder.svg"}
                     alt={`${school.name} logo`}
-                    className={`${school.imgClass} w-full object-contain opacity-85 grayscale-[0.8] transition-all duration-500 hover:opacity-100 hover:brightness-110 hover:grayscale-0`}
+                    className="h-20 max-h-20 w-auto object-contain opacity-85 grayscale-[0.8] transition-all duration-500 hover:opacity-100 hover:brightness-110 hover:grayscale-0"
                     loading="lazy"
                   />
                 </div>
