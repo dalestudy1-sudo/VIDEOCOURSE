@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { PerformanceMap } from "./performance-map";
 
 const VERBS = ["DECODE", "ENGINEER", "OPTIMIZE", "MASTER"];
 
@@ -24,9 +23,6 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
-      {/* UCAT performance contour map */}
-      <PerformanceMap />
-
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-32 lg:py-40 w-full">
         {/* Eyebrow */}
         <div

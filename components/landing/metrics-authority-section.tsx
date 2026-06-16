@@ -9,7 +9,14 @@ const metrics = [
   { value: "Top 1%", label: "Frameworks" },
 ];
 
-const schools = ["King's College London", "Imperial", "UCL", "Bristol"];
+const schools = [
+  { name: "University of Oxford", src: "/logos/oxford.jpg" },
+  { name: "University of Cambridge", src: "/logos/cambridge.png" },
+  { name: "Imperial College London", src: "/logos/imperial.jpg" },
+  { name: "UCL", src: "/logos/ucl.jpg" },
+  { name: "King's College London", src: "/logos/kings.png" },
+  { name: "University of Bristol", src: "/logos/bristol.png" },
+];
 
 export function MetricsAuthoritySection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -60,25 +67,39 @@ export function MetricsAuthoritySection() {
           ))}
         </div>
 
-        {/* Authority / trust logos row */}
-        <div className="mt-12 lg:mt-16">
-          <span className="block font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-6">
-            [ Offers secured at ]
+        {/* Authority / trust logos — continuous marquee */}
+        <div
+          className={`mt-12 lg:mt-16 transition-opacity duration-700 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <span className="block font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-8 text-center">
+            [ Trusted by applicants who secured offers at ]
           </span>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-foreground/10 border border-foreground/10">
-            {schools.map((school, index) => (
-              <div
-                key={school}
-                className={`flex items-center justify-center bg-background px-4 py-8 transition-all duration-700 ${
-                  isVisible ? "opacity-100" : "opacity-0"
-                }`}
-                style={{ transitionDelay: `${index * 100 + 200}ms` }}
-              >
-                <span className="font-display font-bold text-base lg:text-xl uppercase tracking-tight text-muted-foreground/70 grayscale transition-colors duration-300 hover:text-foreground text-center text-balance">
-                  {school}
-                </span>
-              </div>
-            ))}
+          <div
+            className="group relative overflow-hidden"
+            style={{
+              maskImage:
+                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            }}
+          >
+            <div className="flex w-max marquee group-hover:[animation-play-state:paused]">
+              {[...schools, ...schools].map((school, index) => (
+                <div
+                  key={`${school.name}-${index}`}
+                  className="flex shrink-0 items-center justify-center px-10 lg:px-16"
+                >
+                  <img
+                    src={school.src || "/placeholder.svg"}
+                    alt={`${school.name} logo`}
+                    className="h-12 lg:h-16 w-auto object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

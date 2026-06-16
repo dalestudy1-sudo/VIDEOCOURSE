@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "[ SYSTEM_METHOD ]", href: "#how-it-works" },
-  { name: "[ CURRICULUM ]", href: "#features" },
   { name: "[ PERFORMANCE ]", href: "#performance" },
+  { name: "[ CURRICULUM ]", href: "#features" },
+  { name: "[ SYSTEM_METHOD ]", href: "#how-it-works" },
   { name: "[ ENROLL ]", href: "#secure" },
 ];
 
@@ -49,7 +49,7 @@ export function Navigation() {
                 isScrolled ? "text-base" : "text-lg"
               }`}
             >
-              DALE_STUDY&trade;
+              DALEPREP&trade;
             </span>
           </a>
 
@@ -69,12 +69,6 @@ export function Navigation() {
 
           {/* Desktop utility + CTA */}
           <div className="hidden md:flex items-center gap-6">
-            <a
-              href="#"
-              className="text-xs font-mono uppercase tracking-wider text-foreground/60 hover:text-foreground transition-colors duration-300"
-            >
-              [ PORTAL ]
-            </a>
             <Button
               size="sm"
               asChild
@@ -119,16 +113,6 @@ export function Navigation() {
                 {link.name}
               </a>
             ))}
-            <a
-              href="#"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={`text-3xl font-display font-bold uppercase text-foreground/60 hover:text-primary transition-all duration-500 ${
-                isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
-              style={{ transitionDelay: isMobileMenuOpen ? `${navLinks.length * 75}ms` : "0ms" }}
-            >
-              [ PORTAL ]
-            </a>
           </div>
 
           <div
