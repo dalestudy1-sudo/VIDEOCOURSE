@@ -90,12 +90,12 @@ export function MetricsAuthoritySection() {
               {[...schools, ...schools].map((school, index) => (
                 <div
                   key={`${school.name}-${index}`}
-                  className="flex h-24 lg:h-28 shrink-0 items-center justify-center px-16"
+                  className="flex h-24 shrink-0 items-center justify-center px-10"
                 >
                   <img
                     src={school.src || "/placeholder.svg"}
                     alt={`${school.name} logo`}
-                    className="h-20 lg:h-24 w-auto object-contain grayscale brightness-[0.7] transition-all duration-500 hover:grayscale-0 hover:brightness-100"
+                    className="max-h-24 w-auto object-contain opacity-60 grayscale transition-all duration-500 hover:opacity-100 hover:brightness-125 hover:grayscale-0"
                     loading="lazy"
                   />
                 </div>
