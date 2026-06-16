@@ -11,6 +11,7 @@ const metrics = [
 const schools = [
   { name: "University of Oxford", src: "/logos/oxford.png" },
   { name: "University of Cambridge", src: "/logos/cambridge.png" },
+  { name: "University College London", src: "/logos/ucl.png" },
   { name: "University of Edinburgh", src: "/logos/edinburgh.png" },
   { name: "University of Bristol", src: "/logos/bristol.png" },
   { name: "University of Nottingham", src: "/logos/nottingham.png" },
@@ -81,12 +82,12 @@ export function MetricsAuthoritySection() {
               {[...schools, ...schools].map((school, index) => (
                 <div
                   key={`${school.name}-${index}`}
-                  className="flex h-24 w-48 shrink-0 items-center justify-center p-4"
+                  className="flex h-24 w-48 shrink-0 items-center justify-center"
                 >
                   <img
                     src={school.src || "/placeholder.svg"}
                     alt={`${school.name} logo`}
-                    className="h-full w-full object-contain brightness-0 invert opacity-70 transition-all duration-500 hover:opacity-100 hover:brightness-110"
+                    className="h-full w-full object-contain p-2 opacity-70 transition-opacity duration-500 hover:opacity-100"
                     loading="lazy"
                   />
                 </div>
