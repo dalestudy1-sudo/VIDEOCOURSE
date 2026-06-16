@@ -108,7 +108,7 @@
   }
 
   .marquee-slow {
-    animation: marquee 45s linear infinite;
+    animation: marquee 50s linear infinite;
   }
   
   .marquee-reverse {

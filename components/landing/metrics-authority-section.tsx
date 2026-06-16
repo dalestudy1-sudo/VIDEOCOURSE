@@ -11,7 +11,6 @@ const metrics = [
 const schools = [
   { name: "University of Oxford", src: "/logos/oxford.png" },
   { name: "University of Cambridge", src: "/logos/cambridge.png" },
-  { name: "University College London", src: "/logos/ucl.png" },
   { name: "University of Edinburgh", src: "/logos/edinburgh.png" },
   { name: "University of Bristol", src: "/logos/bristol.png" },
   { name: "University of Nottingham", src: "/logos/nottingham.png" },
@@ -74,28 +73,20 @@ export function MetricsAuthoritySection() {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <span className="block font-mono text-sm font-medium uppercase tracking-widest text-muted-foreground mb-14 text-center">
+          <span className="block font-mono text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground mb-12 text-center">
             [ Secured offers at ]
           </span>
-          <div
-            className="group relative w-full overflow-hidden"
-            style={{
-              maskImage:
-                "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-              WebkitMaskImage:
-                "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-            }}
-          >
+          <div className="group relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex w-max marquee-slow group-hover:[animation-play-state:paused]">
               {[...schools, ...schools].map((school, index) => (
                 <div
                   key={`${school.name}-${index}`}
-                  className="flex h-32 shrink-0 items-center justify-center px-8 lg:px-10"
+                  className="flex h-32 w-64 shrink-0 items-center justify-center"
                 >
                   <img
                     src={school.src || "/placeholder.svg"}
                     alt={`${school.name} logo`}
-                    className="h-20 max-h-20 w-auto object-contain opacity-85 grayscale-[0.8] transition-all duration-500 hover:opacity-100 hover:brightness-110 hover:grayscale-0"
+                    className="max-h-24 w-auto object-contain opacity-85 grayscale-[0.8] transition-all duration-500 hover:opacity-100 hover:brightness-110 hover:grayscale-0"
                     loading="lazy"
                   />
                 </div>
