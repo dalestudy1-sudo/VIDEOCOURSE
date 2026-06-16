@@ -5,19 +5,21 @@ import { useEffect, useRef, useState } from "react";
 const metrics = [
   { value: "2600+", label: "Avg Score" },
   { value: "95%", label: "Offer Success" },
-  { value: "90s→30s", label: "Avg Time Per Question" },
+  { value: "3x", label: "Speed Increase" },
   { value: "Top 1%", label: "Frameworks" },
 ];
 
+// imgClass tunes each logo's height inside a fixed w-40 h-24 box so bold/blocky
+// marks (UCL) read at the same visual weight as wide, thin wordmarks (Edinburgh).
 const schools = [
-  { name: "University of Oxford", src: "/logos/oxford.png" },
-  { name: "University of Cambridge", src: "/logos/cambridge.png" },
-  { name: "University College London", src: "/logos/ucl.png" },
-  { name: "University of Edinburgh", src: "/logos/edinburgh.png" },
-  { name: "University of Bristol", src: "/logos/bristol.png" },
-  { name: "University of Nottingham", src: "/logos/nottingham.png" },
-  { name: "University of St Andrews", src: "/logos/standrews.png" },
-  { name: "Cardiff University", src: "/logos/cardiff.png" },
+  { name: "University of Oxford", src: "/logos/oxford.png", imgClass: "h-14" },
+  { name: "University of Cambridge", src: "/logos/cambridge.png", imgClass: "h-16" },
+  { name: "University College London", src: "/logos/ucl.png", imgClass: "h-10" },
+  { name: "University of Edinburgh", src: "/logos/edinburgh.png", imgClass: "h-20" },
+  { name: "University of Bristol", src: "/logos/bristol.png", imgClass: "h-16" },
+  { name: "University of Nottingham", src: "/logos/nottingham.png", imgClass: "h-14" },
+  { name: "University of St Andrews", src: "/logos/standrews.png", imgClass: "h-16" },
+  { name: "Cardiff University", src: "/logos/cardiff.png", imgClass: "h-12" },
 ];
 
 export function MetricsAuthoritySection() {
@@ -54,7 +56,7 @@ export function MetricsAuthoritySection() {
           {metrics.map((metric, index) => (
             <div
               key={metric.label}
-              className={`flex flex-col gap-2 p-6 lg:p-8 border-r border-b border-foreground/10 transition-all duration-700 ${
+              className={`flex flex-col gap-3 p-8 lg:p-10 border-r border-b border-foreground/10 transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
               style={{ transitionDelay: `${index * 80}ms` }}
@@ -62,12 +64,17 @@ export function MetricsAuthoritySection() {
               <span className="font-display font-bold text-4xl lg:text-6xl tracking-tight text-foreground">
                 {metric.value}
               </span>
-              <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              <span className="font-mono text-xs uppercase tracking-widest text-foreground/60">
                 {metric.label}
               </span>
             </div>
           ))}
         </div>
+
+        {/* Data notes footer */}
+        <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-foreground/40">
+          [ Note ] Speed increase reflects avg time-per-question dropping from 90s to 30s.
+        </p>
 
         {/* Authority / trust logos: continuous marquee */}
         <div
@@ -75,7 +82,7 @@ export function MetricsAuthoritySection() {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <span className="block font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-10 text-center">
+          <span className="block font-mono text-sm font-medium uppercase tracking-widest text-muted-foreground mb-14 text-center">
             [ Secured offers at ]
           </span>
           <div
@@ -91,12 +98,12 @@ export function MetricsAuthoritySection() {
               {[...schools, ...schools].map((school, index) => (
                 <div
                   key={`${school.name}-${index}`}
-                  className="flex h-24 shrink-0 items-center justify-center px-12 lg:px-14"
+                  className="flex w-40 max-h-24 shrink-0 items-center justify-center px-2"
                 >
                   <img
                     src={school.src || "/placeholder.svg"}
                     alt={`${school.name} logo`}
-                    className="max-h-24 w-auto object-contain opacity-60 grayscale transition-all duration-500 hover:opacity-100 hover:brightness-125 hover:grayscale-0"
+                    className={`${school.imgClass} w-full object-contain opacity-85 grayscale-[0.8] transition-all duration-500 hover:opacity-100 hover:brightness-110 hover:grayscale-0`}
                     loading="lazy"
                   />
                 </div>
