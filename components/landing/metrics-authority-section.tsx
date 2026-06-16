@@ -5,18 +5,19 @@ import { useEffect, useRef, useState } from "react";
 const metrics = [
   { value: "2600+", label: "Avg Score" },
   { value: "95%", label: "Offer Success" },
-  { value: "3x", label: "Speed Improvement" },
+  { value: "90s→30s", label: "Avg Time Per Question" },
   { value: "Top 1%", label: "Frameworks" },
 ];
 
 const schools = [
-  { name: "University of Oxford", src: "/logos/oxford.jpg" },
-  { name: "University of Cambridge", src: "/logos/cambridge.jpg" },
-  { name: "Imperial College London", src: "/logos/imperial.jpg" },
-  { name: "UCL", src: "/logos/ucl.jpg" },
-  { name: "King's College London", src: "/logos/kings.png" },
-  { name: "University of Sheffield", src: "/logos/sheffield.jpg" },
-  { name: "Newcastle University", src: "/logos/newcastle.png" },
+  { name: "University of Oxford", src: "/logos/oxford.png" },
+  { name: "University of Cambridge", src: "/logos/cambridge.png" },
+  { name: "University College London", src: "/logos/ucl.png" },
+  { name: "University of Edinburgh", src: "/logos/edinburgh.png" },
+  { name: "University of Bristol", src: "/logos/bristol.png" },
+  { name: "University of Nottingham", src: "/logos/nottingham.png" },
+  { name: "University of St Andrews", src: "/logos/standrews.png" },
+  { name: "Cardiff University", src: "/logos/cardiff.png" },
 ];
 
 export function MetricsAuthoritySection() {
@@ -90,7 +91,7 @@ export function MetricsAuthoritySection() {
               {[...schools, ...schools].map((school, index) => (
                 <div
                   key={`${school.name}-${index}`}
-                  className="flex h-24 shrink-0 items-center justify-center px-10"
+                  className="flex h-24 shrink-0 items-center justify-center px-12 lg:px-14"
                 >
                   <img
                     src={school.src || "/placeholder.svg"}
