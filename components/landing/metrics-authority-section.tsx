@@ -11,11 +11,12 @@ const metrics = [
 
 const schools = [
   { name: "University of Oxford", src: "/logos/oxford.jpg" },
-  { name: "University of Cambridge", src: "/logos/cambridge.png" },
+  { name: "University of Cambridge", src: "/logos/cambridge.jpg" },
   { name: "Imperial College London", src: "/logos/imperial.jpg" },
   { name: "UCL", src: "/logos/ucl.jpg" },
   { name: "King's College London", src: "/logos/kings.png" },
-  { name: "University of Bristol", src: "/logos/bristol.png" },
+  { name: "University of Sheffield", src: "/logos/sheffield.jpg" },
+  { name: "Newcastle University", src: "/logos/newcastle.png" },
 ];
 
 export function MetricsAuthoritySection() {
@@ -67,30 +68,39 @@ export function MetricsAuthoritySection() {
           ))}
         </div>
 
-        {/* Authority / trust logos: uniform badge grid */}
+        {/* Authority / trust logos: continuous marquee */}
         <div
           className={`mt-12 lg:mt-16 transition-opacity duration-700 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <span className="block font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-8 text-center">
+          <span className="block font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-10 text-center">
             [ Secured offers at ]
           </span>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 lg:gap-8">
-            {schools.map((school) => (
-              <div
-                key={school.name}
-                className="flex h-24 lg:h-28 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/[0.03] px-6 backdrop-blur-sm transition-colors duration-300 hover:border-foreground/20 hover:bg-foreground/[0.06]"
-              >
-                <img
-                  src={school.src || "/placeholder.svg"}
-                  alt={`${school.name} logo`}
-                  className="max-h-12 lg:max-h-14 w-auto max-w-full object-contain"
-                  style={{ filter: "brightness(0.95) contrast(0.9)" }}
-                  loading="lazy"
-                />
-              </div>
-            ))}
+          <div
+            className="group relative w-full overflow-hidden"
+            style={{
+              maskImage:
+                "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+            }}
+          >
+            <div className="flex w-max marquee-slow group-hover:[animation-play-state:paused]">
+              {[...schools, ...schools].map((school, index) => (
+                <div
+                  key={`${school.name}-${index}`}
+                  className="flex h-24 lg:h-28 shrink-0 items-center justify-center px-16"
+                >
+                  <img
+                    src={school.src || "/placeholder.svg"}
+                    alt={`${school.name} logo`}
+                    className="h-20 lg:h-24 w-auto object-contain grayscale brightness-[0.7] transition-all duration-500 hover:grayscale-0 hover:brightness-100"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
